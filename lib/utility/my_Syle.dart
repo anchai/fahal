@@ -44,6 +44,16 @@ class MySyle {
         ),
       );
 
+  Text ShowTitle2(String Title) => Text(
+        maxLines: 10,
+        Title,
+        style: TextStyle(
+          fontSize: 20.0,
+          color: Colors.blue.shade900,
+          fontWeight: FontWeight.bold,
+        ),
+      );
+
   Text Showtype(String Title) => Text(
         Title,
         style: TextStyle(
