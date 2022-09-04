@@ -169,9 +169,17 @@ class _AddInfoShopState extends State<AddInfoShop> {
 
   Future<Null> editUserShop() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    String? id = preferences.getString('id');
+    var id = preferences.getString('id');
     String url =
-        'http://10.0.189.216/fahal/editUserWhereId.php?isAdd=true&id=$id&NameShop=$nameShop&Address=$address&Phone=$phone&UrlPicture=$urlImage&Lat=$lat&Lng=$lng';
+        '${Myconstant().domain}/fahal/editUserWhereId.php?isAdd=true&id=$id&NameShop=$nameShop&Address=$address&Phone=$phone&UrlPicture=$urlImage&Lat=$lat&Lng=$lng';
+
+    await Dio().get(url).then((value) {
+      if (value.toString() == 'true') {
+        Navigator.pop(context);
+      } else {
+        normalDialog(context, 'กรุณาลองใหม่ ไม่สามารถ บันทึกได้ ค่ะ');
+      }
+    });
   }
 
   Row GroupImage() {

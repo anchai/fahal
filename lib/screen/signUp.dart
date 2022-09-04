@@ -1,5 +1,6 @@
 import 'package:basicfultter/main.dart';
 import 'package:basicfultter/utility/my_Syle.dart';
+import 'package:basicfultter/utility/myconstant.dart';
 import 'package:basicfultter/utility/normal_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,7 @@ class _SignUpState extends State<SignUp> {
 
   Future<Null> checkUser() async {
     String url =
-        'http://10.0.189.216/fahal/getUserWhereUser.php?isAdd=true&User=$user';
+        '${Myconstant().domain}/fahal/getUserWhereUser.php?isAdd=true&User=$user';
     try {
       Response response = await Dio().get(url);
       if (response.toString() == 'null') {
@@ -88,7 +89,7 @@ class _SignUpState extends State<SignUp> {
 
   Future<Null> registerThread() async {
     String url =
-        'http://10.0.189.216/fahal/addUser.php?isAdd=true&Name=$name&User=$user&Password=$password&ChooseType=$chooseType';
+        '${Myconstant().domain}/fahal/addUser.php?isAdd=true&Name=$name&User=$user&Password=$password&ChooseType=$chooseType';
     try {
       Response response = await Dio().get(url);
       print('res = $response');

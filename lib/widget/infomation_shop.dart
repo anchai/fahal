@@ -1,6 +1,9 @@
 import 'package:basicfultter/screen/add_info_shop.dart';
 import 'package:basicfultter/utility/my_Syle.dart';
+import 'package:basicfultter/utility/myconstant.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InformationShop extends StatefulWidget {
   const InformationShop({Key? key}) : super(key: key);
@@ -10,6 +13,24 @@ class InformationShop extends StatefulWidget {
 }
 
 class _InformationShopState extends State<InformationShop> {
+  @override
+  void initState() {
+    super.initState();
+    readDataUser();
+  }
+
+  Future<Null> readDataUser() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    var id = preferences.getString('id');
+
+    String url =
+        '${Myconstant().domain}/fahal/getUserWhereid.php?isAdd=true&id=$id';
+
+    await Dio().get(url).then((value) {
+      print('valut = $value');
+    });
+  }
+
   void routeToAddInfo() {
     print('rountToAddInfo Work');
     MaterialPageRoute materialPageRoute = MaterialPageRoute(

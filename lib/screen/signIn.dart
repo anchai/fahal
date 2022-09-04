@@ -5,6 +5,7 @@ import 'package:basicfultter/screen/main_rider.dart';
 import 'package:basicfultter/screen/main_shop.dart';
 import 'package:basicfultter/screen/main_user.dart';
 import 'package:basicfultter/utility/my_Syle.dart';
+import 'package:basicfultter/utility/myconstant.dart';
 import 'package:basicfultter/utility/normal_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,7 @@ class _SignInState extends State<SignIn> {
 
   Future<Null> checkAuthen() async {
     String url =
-        'http://10.0.189.216/fahal/getUserWhereUser.php?isAdd=true&User=$user';
+        '${Myconstant().domain}/fahal/getUserWhereUser.php?isAdd=true&User=$user';
     try {
       Response response = await Dio().get(url);
       print('res = $response');
