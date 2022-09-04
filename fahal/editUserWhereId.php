@@ -31,7 +31,7 @@ if (isset($_GET)) {
 		$Lng = $_GET['Lng'];
 		
 							
-		$sql = "UPDATE `usertbl` SET `NameShop` = '$NameShop',`Address` = '$Address',`Phone` = '$Phone',`Address` = '$Address',`Lat` = '$Lat',`Lng` = '$Lng'  WHERE id = '$id'";
+		$sql = "UPDATE `usertbl` SET `NameShop` = '$NameShop',`Address` = '$Address',`Phone` = '$Phone',`Address` = '$Address',`UrlPicture` = '$UrlPicture',`Lat` = '$Lat',`Lng` = '$Lng'  WHERE id = '$id'";
 
 		$result = mysqli_query($link, $sql);
 
